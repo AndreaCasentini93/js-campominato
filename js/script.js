@@ -65,7 +65,7 @@ function playMinefield (bombsNumber, minBombs, maxBombs, maxAttempts) {
         if (isNaN(choice) || choice < minBombs || choice > maxBombs) {
             alert("Error! The selected number is invalid.");
         } else if (isInArray(choice, bombs)) {
-            result.innerHTML = "YOU LOST... Your final score is " + attempts.length;
+            result.innerHTML = "YOU LOST... Your final score is " + attempts.length + "<br> <img src=\"img/smile-2.png\" alt=\"Image Smile\">";
             stopCycle = true;
         } else if (!isInArray(choice, attempts)) {
             attempts.push(choice);
@@ -77,7 +77,7 @@ function playMinefield (bombsNumber, minBombs, maxBombs, maxAttempts) {
 
     }
     if (attempts.length == maxAttempts) {
-        result.innerHTML = "YOU WON! Your final score is " + attempts.length;
+        result.innerHTML = "YOU WON! Your final score is " + attempts.length + "<br> <img src=\"img/smile-1.png\" alt=\"Image Smile\">";
     }
     userArray.innerHTML = attempts;
 
