@@ -1,26 +1,17 @@
-/*
-Il computer deve generare 16 numeri casuali tra 1 e 100.
-I numeri non possono essere duplicati.
-In seguito deve chiedere all'utente (100 - 16) volte di inserire un numero alla volta, sempre compreso tra 1 e 100.
-L'utente non può inserire più volte lo stesso numero.
-Se il numero è presente nella lista dei numeri generati, la partita termina, altrimenti si continua chiedendo all'utente un altro numero.
-La partita termina quando il giocatore inserisce un numero "vietato" o raggiunge il numero massimo possibile di numeri consentiti.
-Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l'utente ha inserito un numero consentito.
-
-all'inizio il software richiede anche una difficoltà all'utente che cambia il range di numeri casuali:
-con difficoltà 0 => tra 1 e 100
-con difficoltà 1 => tra 1 e 80
-con difficoltà 2 => tra 1 e 50
-*/
-
 // -------------------------VARIABILI-------------------------
-var bombs = [];
-var attempts = [];
-var bombsNumber = 16;
-var minBombs = 1;
-var maxBombs = 100;
-var maxAttempts = 84;
-maxAttempts = 5;
+var bombs;
+var attempts;
+var stopCycle;
+var bombsNumber;
+var minBombs;
+var maxBombs;
+var maxAttempts;
+var cycleTurn;
+var choiceControl;
+var difficultyLevel = document.getElementById("difficulty-level");
+var bombsArray = document.getElementById("bombs-array");
+var userArray = document.getElementById("user-array");
+var result = document.getElementById("result");
 // -------------------------/VARIABILI------------------------
 
 // -------------------------FUNZIONI--------------------------
@@ -53,31 +44,90 @@ function arrayGeneratorWithoutRepetition (array, elementNumber, min, max) {
 
 }
 
+function playMinefield (bombsNumber, minBombs, maxBombs, maxAttempts) {
+
+    bombs = [];
+    attempts = [];
+    stopCycle = false;
+    cycleTurn = 0;
+    choiceControl = "";
+    bombsArray.innerHTML = "";
+    userArray.innerHTML = "";
+    result.innerHTML = "";
+
+    bombs = arrayGeneratorWithoutRepetition (bombs, bombsNumber, minBombs, maxBombs);
+    bombsArray.innerHTML = bombs;
+
+
+    while (attempts.length < maxAttempts && stopCycle == false) {
+        var choice = parseInt(prompt("Choose a number from " + minBombs + " to " + maxBombs + ", please. Your choices are = [" + choiceControl + "]"))
+
+        if (isNaN(choice) || choice < minBombs || choice > maxBombs) {
+            alert("Error! The selected number is invalid.");
+        } else if (isInArray(choice, bombs)) {
+            result.innerHTML = "YOU LOST... Your final score is " + attempts.length;
+            stopCycle = true;
+        } else if (!isInArray(choice, attempts)) {
+            attempts.push(choice);
+            choiceControl += (attempts[cycleTurn]) + ", ";
+            cycleTurn++
+        } else {
+            alert("You have already chosen this number. Please enter a new number.");
+        }
+
+    }
+    if (attempts.length == maxAttempts) {
+        result.innerHTML = "YOU WON! Your final score is " + attempts.length;
+    }
+    userArray.innerHTML = attempts;
+
+}
 // -------------------------/FUNZIONI-------------------------
 
 // GIOCO
-bombs = arrayGeneratorWithoutRepetition (bombs, bombsNumber, minBombs, maxBombs);
-console.log("Array Bombs", bombs);
+function easy () {
 
-var stop = false;
-
-while (attempts.length < maxAttempts && stop == false) {
-    var choice = parseInt(prompt("Choose a number from 1 to 100, please."))
-
-    if (isInArray(choice, bombs)) {
-        alert("YOU LOST");
-        stop = true;
-    }
-    if (!isInArray(choice, attempts)) {
-        attempts.push(choice);
-    } else {
-        alert("NUMBER ALREADY INSERTED");
-    }
+    difficultyLevel.innerHTML = "Easy";
+    playMinefield (16, 1, 100, 84);
 
 }
-if (attempts.length == maxAttempts) {
-    alert("YOU WON");
+
+function normal() {
+
+    difficultyLevel.innerHTML = "Normal";
+    playMinefield (16, 1, 80, 64);
+
 }
 
+function hard() {
 
+    difficultyLevel.innerHTML = "Hard";
+    playMinefield (16, 1, 50, 34);
+
+}
 // /GIOCO
+
+/* GIOCO CON SWITCH CASE
+var difficultyLevel = prompt("Enter the difficulty level = \"Easy\", \"Normal\", \"Hard\".");
+
+switch (difficultyLevel) {
+
+    case "Easy":
+        difficultyLevel.innerHTML = "Easy";
+        playMinefield (16, 1, 100, 84);
+        break;
+
+    case "Normal":
+        difficultyLevel.innerHTML = "Normal";
+        playMinefield (16, 1, 80, 64);
+        break;
+
+    case "Hard":
+        difficultyLevel.innerHTML = "Hard";
+        playMinefield (16, 1, 50, 34);
+        break;
+
+    default:
+        alert("The entered level is invalid.");
+}
+ /GIOCO CON SWITCH CASE */

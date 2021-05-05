@@ -7,11 +7,23 @@
         <!-- STYLE CSS -->
         <link rel="stylesheet" href="css/style.css">
         <!-- TITLE -->
-        <title>Campo Minato</title>
+        <title>Minefield</title>
     </head>
 
     <body>
-        
+        <h1>Minefield</h1>
+        <p>Choose a difficulty level</p>
+        <div id="box">
+            <button id="easy" onclick="easy()">Easy</button>
+            <button id="normal" onclick="normal()">Normal</button>
+            <button id="hard" onclick="hard()">Hard</button>
+        </div>
+        <div id="messages">
+            <div>Difficulty level<br><span id="difficulty-level"></span></div>
+            <div>Bombs location<br><span id="bombs-array"></span></div>
+            <div>Your choices are<br><span id="user-array"></span></div>
+            <div id="result"></div>
+        </div>
 
         <!-- SCRIPT JS -->
         <script src="js/script.js"></script>
