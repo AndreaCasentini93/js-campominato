@@ -60,7 +60,7 @@ function playMinefield (bombsNumber, minBombs, maxBombs, maxAttempts) {
 
 
     while (attempts.length < maxAttempts && stopCycle == false) {
-        var choice = parseInt(prompt("Choose a number from " + minBombs + " to " + maxBombs + ", please. Your choices are = [" + choiceControl + "]"))
+        var choice = parseInt(prompt("Choose a number from " + minBombs + " to " + maxBombs + ", please. \n Your choices are = [" + choiceControl + "]"))
 
         if (isNaN(choice) || choice < minBombs || choice > maxBombs) {
             alert("Error! The selected number is invalid.");
