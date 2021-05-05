@@ -16,6 +16,9 @@ con difficoltà 2 => tra 1 e 50
 // -------------------------VARIABILI-------------------------
 var bombs = [];
 var attempts = [];
+var bombsNumber = 16;
+var minBombs = 1;
+var maxBombs = 100;
 var maxAttempts = 84;
 // -------------------------/VARIABILI------------------------
 
@@ -34,11 +37,27 @@ function isInArray (number, array) {
     return false;
 
 }
+
+function bombsGenerator (array, bombsNumber, min, max) {
+
+    while (array.length < bombsNumber) {
+        var number = (randomNumber(min, max))
+
+        if (!isInArray(number, array)) {
+            array.push(number);
+        }
+
+    }
+
+    return array;
+
+}
+
 // -------------------------/FUNZIONI-------------------------
 
-// CREA BOMBE
-
-// /CREA BOMBE
-
 // GIOCO
+var bombs = bombsGenerator (bombs, bombsNumber, minBombs, maxBombs);
+console.log("Array Bombs", bombs);
+
+
 // /GIOCO
