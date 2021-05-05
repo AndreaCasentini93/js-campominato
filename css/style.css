@@ -1,0 +1,72 @@
+/* COMMONS */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 2px;
+    background-color: #E4E2D5;
+}
+
+#container {
+    padding: 50px;
+    border-top: 10px solid #818181;
+    border-right: 10px solid #FFFFFF;
+    border-bottom: 10px solid #FFFFFF;
+    border-left: 10px solid #818181;
+    margin: auto;
+    text-align: center;
+    background-color: #BFBFBF;
+}
+#container h1 {
+    font-size: 40px;
+    color: #FFFF0A;
+    text-shadow: 3px 3px #000000;
+}
+#container p {
+    margin: 30px 0;
+    font-size: 18px;
+}
+
+/* BUTTON BOX */
+#button-box button {
+    padding: 15px 20px;
+    border-top: 5px solid #818181;
+    border-right: 5px solid #FFFFFF;
+    border-bottom: 5px solid #FFFFFF;
+    border-left: 5px solid #818181;
+    margin: 0 5px;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #BFBFBF;
+    cursor: pointer;
+}
+#button-box button:active {
+    border-top: 5px solid #FFFFFF;
+    border-right: 5px solid #818181;
+    border-bottom: 5px solid #818181;
+    border-left: 5px solid #FFFFFF;
+    background-color: #b4b4b4;
+}
+
+/* MESSAGES BOX */
+#messages-box div {
+    margin: 30px 0;
+}
+#messages-box span {
+    display: block;
+    margin-top: 30px;
+    font-size: 15px;
+    color: #FFFFFF;
+    text-shadow: 2px 2px #000000;
+}
+#messages-box #result {
+    font-size: 25px;
+    color: #FFFF0A;
+    text-shadow: 3px 3px #000000;
+}

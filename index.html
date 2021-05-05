@@ -4,6 +4,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- FONT GOOGLE -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
         <!-- STYLE CSS -->
         <link rel="stylesheet" href="css/style.css">
         <!-- TITLE -->
@@ -11,18 +14,20 @@
     </head>
 
     <body>
-        <h1>Minefield</h1>
-        <p>Choose a difficulty level</p>
-        <div id="box">
-            <button id="easy" onclick="easy()">Easy</button>
-            <button id="normal" onclick="normal()">Normal</button>
-            <button id="hard" onclick="hard()">Hard</button>
-        </div>
-        <div id="messages">
-            <div>Difficulty level<br><span id="difficulty-level"></span></div>
-            <div>Bombs location<br><span id="bombs-array"></span></div>
-            <div>Your choices are<br><span id="user-array"></span></div>
-            <div id="result"></div>
+        <div id="container">
+            <h1>Minefield</h1>
+            <p>Choose a difficulty level</p>
+            <div id="button-box">
+                <button id="easy" onclick="easy()">Easy</button>
+                <button id="normal" onclick="normal()">Normal</button>
+                <button id="hard" onclick="hard()">Hard</button>
+            </div>
+            <div id="messages-box">
+                <div>Difficulty level<br><span id="difficulty-level"></span></div>
+                <div>Bombs location<br><span id="bombs-array"></span></div>
+                <div>Your choices are<br><span id="user-array"></span></div>
+                <div id="result"></div>
+            </div>
         </div>
 
         <!-- SCRIPT JS -->
