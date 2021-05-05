@@ -20,6 +20,7 @@ var bombsNumber = 16;
 var minBombs = 1;
 var maxBombs = 100;
 var maxAttempts = 84;
+maxAttempts = 5;
 // -------------------------/VARIABILI------------------------
 
 // -------------------------FUNZIONI--------------------------
@@ -38,9 +39,9 @@ function isInArray (number, array) {
 
 }
 
-function bombsGenerator (array, bombsNumber, min, max) {
+function arrayGeneratorWithoutRepetition (array, elementNumber, min, max) {
 
-    while (array.length < bombsNumber) {
+    while (array.length < elementNumber) {
         var number = (randomNumber(min, max))
 
         if (!isInArray(number, array)) {
@@ -48,7 +49,6 @@ function bombsGenerator (array, bombsNumber, min, max) {
         }
 
     }
-
     return array;
 
 }
@@ -56,8 +56,28 @@ function bombsGenerator (array, bombsNumber, min, max) {
 // -------------------------/FUNZIONI-------------------------
 
 // GIOCO
-var bombs = bombsGenerator (bombs, bombsNumber, minBombs, maxBombs);
+bombs = arrayGeneratorWithoutRepetition (bombs, bombsNumber, minBombs, maxBombs);
 console.log("Array Bombs", bombs);
+
+var stop = false;
+
+while (attempts.length < maxAttempts && stop == false) {
+    var choice = parseInt(prompt("Choose a number from 1 to 100, please."))
+
+    if (isInArray(choice, bombs)) {
+        alert("YOU LOST");
+        stop = true;
+    }
+    if (!isInArray(choice, attempts)) {
+        attempts.push(choice);
+    } else {
+        alert("NUMBER ALREADY INSERTED");
+    }
+
+}
+if (attempts.length == maxAttempts) {
+    alert("YOU WON");
+}
 
 
 // /GIOCO
