@@ -30,9 +30,9 @@ function isInArray (number, array) {
 
 }
 
-function arrayGeneratorWithoutRepetition (array, elementNumber, min, max) {
+function arrayGeneratorWithoutRepetition (array, elementsNumber, min, max) {
 
-    while (array.length < elementNumber) {
+    while (array.length < elementsNumber) {
         var number = (randomNumber(min, max))
 
         if (!isInArray(number, array)) {
