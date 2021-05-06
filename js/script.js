@@ -108,10 +108,10 @@ function hard() {
 // /GIOCO
 
 /* GIOCO CON SWITCH CASE
-var difficultyLevel = prompt("Enter the difficulty level = \"Easy\", \"Normal\", \"Hard\".");
-difficultyLevel = difficultyLevel.toLowerCase();
+var difficultyLevelChoice = prompt("Enter the difficulty level = \"Easy\", \"Normal\", \"Hard\".");
+difficultyLevelChoice = difficultyLevelChoice.toLowerCase();
 
-switch (difficultyLevel) {
+switch (difficultyLevelChoice) {
 
     case "hard":
         difficultyLevel.innerHTML = "Hard";
