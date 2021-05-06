@@ -109,15 +109,16 @@ function hard() {
 
 /* GIOCO CON SWITCH CASE
 var difficultyLevel = prompt("Enter the difficulty level = \"Easy\", \"Normal\", \"Hard\".");
+difficultyLevel = difficultyLevel.toLowerCase();
 
 switch (difficultyLevel) {
 
-    case "Hard":
+    case "hard":
         difficultyLevel.innerHTML = "Hard";
         playMinefield (16, 1, 50, 34);
         break;
     
-    case "Normal":
+    case "normal":
         difficultyLevel.innerHTML = "Normal";
         playMinefield (16, 1, 80, 64);
         break;
