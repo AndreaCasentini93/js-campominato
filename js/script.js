@@ -60,7 +60,7 @@ function playMinefield (bombsNumber, minBombs, maxBombs, maxAttempts) {
 
 
     while (attempts.length < maxAttempts && stopCycle == false) {
-        var choice = parseInt(prompt("Choose a number from " + minBombs + " to " + maxBombs + ", please.\nYour choices are = " + choiceControl))
+        var choice = parseInt(prompt("Choose a number from " + minBombs + " to " + maxBombs + ", please.\nYour choices are = " + choiceControl));
 
         if (isNaN(choice) || choice < minBombs || choice > maxBombs) {
             alert("Error! The selected number is invalid.");
@@ -112,22 +112,19 @@ var difficultyLevel = prompt("Enter the difficulty level = \"Easy\", \"Normal\",
 
 switch (difficultyLevel) {
 
-    case "Easy":
-        difficultyLevel.innerHTML = "Easy";
-        playMinefield (16, 1, 100, 84);
+    case "Hard":
+        difficultyLevel.innerHTML = "Hard";
+        playMinefield (16, 1, 50, 34);
         break;
-
+    
     case "Normal":
         difficultyLevel.innerHTML = "Normal";
         playMinefield (16, 1, 80, 64);
         break;
 
-    case "Hard":
-        difficultyLevel.innerHTML = "Hard";
-        playMinefield (16, 1, 50, 34);
-        break;
-
     default:
-        alert("The entered level is invalid.");
+        difficultyLevel.innerHTML = "Easy";
+        playMinefield (16, 1, 100, 84);
+
 }
  /GIOCO CON SWITCH CASE */
